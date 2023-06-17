@@ -1,25 +1,31 @@
 import { useRef, useState, useEffect } from "react";
 import { Canvas, useFrame } from "@react-three/fiber";
 import { OrbitControls } from "@react-three/drei";
+import {Tween} from 'tween.js'
 
 import "./scss/app.scss";
 
 export default function App() {
   const [spin, setSpin] = useState(false);
   const [gap, setGap] = useState(1.01);
+  
+  
 
   const handleKeyDown = (event) => {
-    if (event.key === 'ArrowLeft') {
+    if (event.key === "ArrowLeft") {
       setGap((prevNumber) => prevNumber - 0.01);
-    } else if (event.key === 'ArrowRight') {
+    } else if (event.key === "ArrowRight") {
       setGap((prevNumber) => prevNumber + 0.01);
+    }else if (event.key === 'Enter'){
+      event.preventDefault();
+      setSpin((spin) => !spin)
     }
   };
 
   useEffect(() => {
-    window.addEventListener('keydown', handleKeyDown);
+    window.addEventListener("keydown", handleKeyDown);
     return () => {
-      window.removeEventListener('keydown', handleKeyDown);
+      window.removeEventListener("keydown", handleKeyDown);
     };
   }, []);
 
@@ -36,6 +42,8 @@ export default function App() {
     useFrame((state, delta) => {
       if (spin) {
         ref.current.rotation.x += delta;
+        ref.current.rotation.z += delta;
+        ref.current.rotation.y += delta;
       }
     });
     // Return the view, these are regular Threejs elements expressed in JSX
@@ -79,11 +87,20 @@ export default function App() {
     return boxes;
   }
 
+  
+
   return (
     <div className="wrap">
-      <button onClick={() => setSpin(!spin)} className="spinBtn">
-        Spin it
-      </button>
+      <div className="controlBox">
+        <button className="spinBtn" onClick={() => setGap(gap + 0.01)}>Up</button>
+        <button onClick={() => setSpin(!spin)} className="spinBtn">
+          Spin it
+        </button>
+        <button className="spinBtn" onClick={() => setGap(gap - 0.01)}>
+          Down
+        </button>
+      </div>
+
       <Canvas>
         <ambientLight intensity={0.5} />
         <spotLight
