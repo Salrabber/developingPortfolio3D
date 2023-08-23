@@ -26,7 +26,8 @@ export const Navbar = () => {
                 </a>
               </li>
               <li className="menu__list-item">
-                <a className="menu__list-link" href="/developingPortfolio3D/matrix">
+              {/* <a className="menu__list-link" href="/developingPortfolio3D/matrix"> */}
+              <a className="menu__list-link" href="https://salrabber.github.io/developingPortfolio3D/matrix">
                   Cubes
                 </a>
               </li>

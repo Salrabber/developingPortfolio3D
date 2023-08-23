@@ -17,6 +17,9 @@ const router = createBrowserRouter([
   {
     path: "/developingPortfolio3D/matrix",
     element: <Matrix />,
+  },{
+    path: "https://salrabber.github.io/developingPortfolio3D/matrix",
+    element: <Matrix />,
   },
 ]);
 
