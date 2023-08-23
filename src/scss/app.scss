@@ -1,50 +1,18 @@
-.wrap {
-  position: relative;
-  overflow-x: hidden;
+.page {
+  height: 100vh;
+  scroll-snap-type: y mandatory;
+  scroll-behavior: smooth;
+  overflow-y: auto;
+  scrollbar-width: none;
+  color: white;
 
-  .controlBox {
-    position: absolute;
-    right: 25%;
-    bottom: 60%;
-    background: transparent;
-    // position: relative;
-    z-index: 5;
-    &::after{
-      content: 'Better use Enter/left/right buttons';
-      position: absolute;
-      top: 100%;
-      width: 100%;
-      left: 0;
-      right: 0;
-      top: 0;
-      margin-left: 110px;
-      width: 500px;
-      margin-top: 65px;
-      font-size: 22px;
-      color: grey;
-      opacity: 0.7;
-    }
+  background: url("./lamaImages/bg.jpeg");
+  &::-webkit-scrollbar {
+    display: none;
   }
+}
 
-  .spinBtn {
-    margin-bottom: 5px;
-    width: 100px;
-    height: 50px;
-    padding: 10px;
-    border-radius: 100px;
-    font-size: 20px;
-    background: transparent;
-    color: blueviolet;
-    cursor: pointer;
-    transition: all 0.2s;
-    display: block;
-    border: 2px solid;
-    border-color: blueviolet;
-    &:hover {
-      border-color: #ff27e2;
-      color: #ff27e2;
-    }
-
-    
-  }
+.ss {
+  height: 100vh;
+  scroll-snap-align: center;
 }

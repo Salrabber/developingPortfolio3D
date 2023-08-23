@@ -1,0 +1,349 @@
+@mixin section() {
+  height: 100vh;
+  scroll-snap-align: center;
+}
+
+@mixin textAnimation($text) {
+  &::after {
+    position: absolute;
+    content: $text;
+    top: 0;
+    left: 0;
+    color: pink;
+    width: 0px;
+    overflow: hidden;
+    white-space: nowrap;
+  }
+  &:hover {
+    &::after {
+      animation: moveText 0.5s linear both;
+
+      @keyframes moveText {
+        to {
+          width: 100%;
+        }
+      }
+    }
+  }
+}
+
+$basic: "Roboto", sans-serif;
+$divine: "Frank Ruhl Libre", serif;
+
+* {
+  font-family: $divine;
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 15px;
+  height: 100%;
+}
+
+.wrapper {
+  height: 100%;
+  scroll-snap-align: center;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-top: 10px;
+  @media only screen and (max-width: 768px) {
+    width: 100%;
+    padding: 10px;
+  }
+}
+
+.navbar {
+  .menu {
+    display: flex;
+    align-items: center;
+    gap: 50px;
+    .lama-logo {
+      height: 50px;
+      cursor: pointer;
+    }
+    &__list {
+      display: flex;
+      gap: 20px;
+      list-style: none;
+
+      @media only screen and (max-width: 768px) {
+        display: none;
+      }
+    }
+    &__list-item {
+      cursor: pointer;
+      a {
+        font-size: 20px;
+      }
+    }
+  }
+  .navbar-box {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    .search__img {
+      width: 20px;
+      cursor: pointer;
+    }
+    .search__btn {
+      width: 100px;
+      padding: 10px;
+      background-color: #da4ea2;
+      color: white;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      font-size: 18px;
+    }
+  }
+}
+
+.hero {
+  @include section();
+  &__inner {
+    display: flex;
+    justify-content: space-between;
+    align-items: start;
+    @media only screen and (max-width: 850px) {
+      width: 100%;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+    }
+  }
+  &__info {
+    margin-top: 200px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 20px;
+    width: 50%;
+    @media only screen and (max-width: 850px) {
+      flex: 1;
+      align-items: center;
+      text-align: center;
+    }
+  }
+  &__title {
+    font-size: 53px;
+
+    @media only screen and (max-width: 850px) {
+      text-align: center;
+    }
+  }
+  &__sub {
+    margin-top: 15px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    img {
+      height: 5px;
+    }
+    h2 {
+      color: #da4ea2;
+      line-height: 25px;
+      font-size: 25px;
+      font-weight: 700;
+    }
+  }
+  &__text {
+    font-size: 24px;
+    line-height: 27px;
+    color: lightgray;
+    font-family: $divine;
+    font-weight: 500;
+    @media (max-width: 100px) {
+      padding: 20px;
+      text-align: center;
+      align-items: center;
+    }
+  }
+  &__btn {
+    background-color: #da4ea2;
+    color: white;
+    margin-top: 10px;
+    font-weight: 500;
+    width: 100px;
+    padding: 10px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-family: $basic;
+    font-size: 15px;
+  }
+  &__visual {
+    flex: 3;
+    position: relative;
+    height: 100vh;
+    width: 100%;
+    padding-left: 50px;
+    @media only screen and (max-width: 850px) {
+      flex: 1;
+      width: 100%;
+      scroll-snap-align: center;
+      display: none;
+    }
+  }
+  &__visual-img {
+    width: 400px;
+    height: 400px;
+    object-fit: contain;
+    animation: animate 1.8s infinite ease alternate;
+    z-index: 2;
+    position: absolute;
+    top: 15%;
+    right: 10%;
+    @media only screen and (max-width: 850px) {
+      width: 300px;
+      height: 300px;
+    }
+
+    @keyframes animate {
+      to {
+        transform: translateY(30px);
+      }
+    }
+  }
+}
+
+.who {
+  @include section();
+  &__btn {
+    width: 120px;
+  }
+}
+
+.works {
+  @include section();
+  &__inner {
+    height: 100vh;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    @media only screen and (max-width: 850px) {
+      flex-direction: column;
+      width: 100%;
+    }
+  }
+  &__info {
+    flex-basis: 50%;
+    @media only screen and (max-width: 850px) {
+      padding: 20px;
+    }
+  }
+  &__list {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    min-width: 650px;
+  }
+
+  &__list-item {
+    font-size: 90px;
+    font-weight: bold;
+    cursor: pointer;
+    color: transparent;
+    -webkit-text-stroke: 1px white;
+    font-family: $basic;
+    position: relative;
+
+    &:nth-child(1) {
+      @include textAnimation("Web Design");
+    }
+    &:nth-child(2) {
+      @include textAnimation("Development");
+    }
+    &:nth-child(3) {
+      @include textAnimation("illustration");
+    }
+    &:nth-child(4) {
+      @include textAnimation("Product Design");
+    }
+    &:nth-child(5) {
+      @include textAnimation("Social Media");
+    }
+
+    @media only screen and (max-width: 850px) {
+      font-size: 25px;
+      color: white;
+      -webkit-text-stroke: 0px;
+      text-align: center;
+    }
+  }
+  &__model {
+    height: 100%;
+    width: 100%;
+    @media only screen and (max-width: 850px) {
+      width: 350px;
+      height: 350px;  
+    }
+
+  }
+}
+
+.contact {
+  @include section();
+  position: relative;
+  &__inner {
+    height: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  &__box {
+    flex-basis: 50%;
+    z-index: 5;
+  }
+  &__form {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    width: 100%;
+    padding-left: 100px;
+    gap: 20px;
+    @media only screen and (max-width: 768px) {
+      width: 300px;
+    }
+    &-title {
+      font-size: 25px;
+      font-family: $basic;
+      font-weight: 100;
+    }
+    &-input {
+      padding: 20px;
+      background-color: #e8e6e6;
+      border: none;
+      border-radius: 5px;
+      outline: none;
+    }
+    &-text {
+      padding: 20px;
+      border: none;
+      border-radius: 5px;
+      background-color: #e8e6e6;
+      outline: none;
+    }
+    &-btn {
+      background-color: #da4ea2;
+      color: white;
+      border: none;
+      font-weight: bold;
+      cursor: pointer;
+      border-radius: 5px;
+      padding: 20px;
+      font-size: 15px;
+      text-align: center;
+    }
+  }
+}
+
+.map {
+  width: 100vh;
+  position: absolute;
+  top: 0;
+  right: -25%;
+  height: 100%;
+  width: 100%;
+}
