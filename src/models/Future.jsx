@@ -8,9 +8,13 @@ title: TheFuture
 
 import React, { useRef } from 'react'
 import { useGLTF } from '@react-three/drei'
+import myGLTF from "/models/future-transformed.glb"
+
 
 export default function TheFuture(props) {
-  const { nodes, materials } = useGLTF('/models/future-transformed.glb')
+  // const { nodes, materials } = useGLTF('/models/future-transformed.glb')
+  const { nodes, materials } = useGLTF(myGLTF)
+
   return (
     <group {...props} dispose={null}>
       <group rotation={[-Math.PI / 2, 0, 0]}>

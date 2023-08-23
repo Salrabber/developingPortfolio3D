@@ -8,9 +8,13 @@ title: Flat Design WEB
 
 import React, { useRef } from "react";
 import { useGLTF } from "@react-three/drei";
+import myGLTF from "/models/design1-transformed.glb"
+
 
 export default function Design1(props) {
-  const { nodes, materials } = useGLTF("/models/design1-transformed.glb");
+  // const { nodes, materials } = useGLTF("/models/design1-transformed.glb");
+  const { nodes, materials } = useGLTF(myGLTF)
+
   return (
     <group {...props} dispose={null}>
       <group rotation={[-Math.PI / 2, 0, 0]}>

@@ -8,9 +8,12 @@ title: Voxel Web Development
 
 import React, { useRef } from 'react'
 import { useGLTF } from '@react-three/drei'
+import myGLTF from "/models/development-transformed.glb"
+
 
 export default function Develop(props) {
-  const { nodes, materials } = useGLTF('/models/development-transformed.glb')
+  // const { nodes, materials } = useGLTF('/models/development-transformed.glb')
+  const { nodes, materials } = useGLTF(myGLTF)
   return (
     <group {...props} dispose={null}>
       <group rotation={[-Math.PI / 2, 0, 0]}>

@@ -9,8 +9,13 @@ title: Lyrical Lemonade
 import React, { useRef } from 'react'
 import { useGLTF } from '@react-three/drei'
 
+import myGLTF from "/models/lyric-transformed.glb"
+
+
 export default function Lyric(props) {
-  const { nodes, materials } = useGLTF('/models/lyric-transformed.glb')
+  // const { nodes, materials } = useGLTF('/models/lyric-transformed.glb')
+  const { nodes, materials } = useGLTF(myGLTF)
+
   return (
     <group {...props} dispose={null}>
       <group rotation={[-Math.PI / 2, 0, 0]}>

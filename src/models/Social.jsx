@@ -8,9 +8,12 @@ title: Social Media Icons_ Anil Jaco
 
 import React, { useRef } from 'react'
 import { useGLTF } from '@react-three/drei'
+import myGLTF from "/models/social-transformed.glb"
+
 
 export default function SocialMedia(props) {
-  const { nodes, materials } = useGLTF('/models/social-transformed.glb')
+  // const { nodes, materials } = useGLTF('/models/social-transformed.glb')
+  const { nodes, materials } = useGLTF(myGLTF)
   return (
     <group {...props} dispose={null}>
       <group rotation={[-Math.PI / 2, 0, 0]}>
