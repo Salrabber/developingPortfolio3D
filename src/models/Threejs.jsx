@@ -9,7 +9,8 @@ title: Three.js
 import React, { useRef } from 'react'
 import { useGLTF } from '@react-three/drei'
 
-import myGLTF from "/public/models/threejs-transformed.glb"
+// import myGLTF from "/public/models/threejs-transformed.glb"
+import myGLTF from "/models/threejs-transformed.glb"
 
 
 export default function LogoThreejs(props) {
