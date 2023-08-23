@@ -10,7 +10,8 @@ import React, { useRef } from 'react'
 import { useGLTF } from '@react-three/drei'
 
 export default function LogoThreejs(props) {
-  const { nodes, materials } = useGLTF('/models/threejs-transformed.glb')
+  // const { nodes, materials } = useGLTF('./models/threejs-transformed.glb')
+  const { nodes, materials } = useGLTF('../models/threejs-transformed.glb')
   return (
     <group {...props} dispose={null}>
       <group rotation={[-Math.PI / 2, 0, 0]}>
@@ -22,4 +23,4 @@ export default function LogoThreejs(props) {
   )
 }
 
-useGLTF.preload('/models/threejs-transformed.glb')
+useGLTF.preload('../models/threejs-transformed.glb')
