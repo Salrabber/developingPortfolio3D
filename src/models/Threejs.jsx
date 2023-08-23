@@ -13,8 +13,8 @@ import myGLTF from "/public/models/threejs-transformed.glb"
 
 
 export default function LogoThreejs(props) {
-  const { nodes, materials } = useGLTF('./models/threejs-transformed.glb')
-  // const { nodes, materials } = useGLTF(myGLTF.src)
+  // const { nodes, materials } = useGLTF('./models/threejs-transformed.glb')
+  const { nodes, materials } = useGLTF(myGLTF)
   return (
     <group {...props} dispose={null}>
       <group rotation={[-Math.PI / 2, 0, 0]}>
