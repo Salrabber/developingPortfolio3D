@@ -1,5 +1,7 @@
 import "../scss/lama.scss";
 import { MapChart } from "../components/libs";
+import {Link} from 'react-router-dom'
+
 
 import { useRef, useState } from "react";
 import emailjs from "@emailjs/browser";
@@ -16,9 +18,8 @@ export const Navbar = () => {
             </a>
             <ul className="menu__list">
               <li className="menu__list-item">
-                <a className="menu__list-link" href="#">
-                  Home
-                </a>
+              <Link to="/developingPortfolio3D/">to home</Link>
+
               </li>
               <li className="menu__list-item">
                 <a className="menu__list-link" href="#">
@@ -27,9 +28,11 @@ export const Navbar = () => {
               </li>
               <li className="menu__list-item">
               {/* <a className="menu__list-link" href="/developingPortfolio3D/matrix"> */}
-              <a className="menu__list-link" href="https://salrabber.github.io/developingPortfolio3D/matrix">
+              {/* <a className="menu__list-link" href="https://salrabber.github.io/developingPortfolio3D/matrix">
                   Cubes
-                </a>
+                </a> */}
+                <Link to="/developingPortfolio3D/matrix">to matrix</Link>
+
               </li>
               <li className="menu__list-item">
                 <a className="menu__list-link" href="#">
