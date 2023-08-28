@@ -1,11 +1,20 @@
 import "../scss/lama.scss";
 import { MapChart } from "../components/libs";
-import {Link} from 'react-router-dom'
-
+import { Link } from "react-router-dom";
 
 import { useRef, useState } from "react";
 import emailjs from "@emailjs/browser";
-import { CanvasScene, Cube, Development, Illustration, MySphere, ProductDesign, Socials, ThreeLogo, WebDesign } from "../components/Canvas";
+import {
+  CanvasScene,
+  Cube,
+  Development,
+  Illustration,
+  MySphere,
+  ProductDesign,
+  Socials,
+  ThreeLogo,
+  WebDesign,
+} from "../components/Canvas";
 
 export const Navbar = () => {
   return (
@@ -18,8 +27,7 @@ export const Navbar = () => {
             </a>
             <ul className="menu__list">
               <li className="menu__list-item">
-              <Link to="/developingPortfolio3D/">to home</Link>
-
+                <Link to="/developingPortfolio3D/">to home</Link>
               </li>
               <li className="menu__list-item">
                 <a className="menu__list-link" href="#">
@@ -27,12 +35,7 @@ export const Navbar = () => {
                 </a>
               </li>
               <li className="menu__list-item">
-              {/* <a className="menu__list-link" href="/developingPortfolio3D/matrix"> */}
-              {/* <a className="menu__list-link" href="https://salrabber.github.io/developingPortfolio3D/matrix">
-                  Cubes
-                </a> */}
                 <Link to="/developingPortfolio3D/matrix">to matrix</Link>
-
               </li>
               <li className="menu__list-item">
                 <a className="menu__list-link" href="#">
@@ -104,31 +107,30 @@ export const Who = () => {
   );
 };
 export const Works = () => {
+  const [work, setWork] = useState("");
 
-  const [work, setWork] = useState('');
-
-  const sw = (item) =>{
-    switch(item){
-      case 'Web Design':
-        return <WebDesign />
-      break
-      case 'Development':
-        return <Development />
-      break
-      case 'illustration':
-        return <Illustration />
-      break
-      case 'Product Design':
-        return <ProductDesign />
-      break
-      case 'Social Media':
-        return <Socials />
-      break
+  const sw = (item) => {
+    switch (item) {
+      case "Web Design":
+        return <WebDesign />;
+        break;
+      case "Development":
+        return <Development />;
+        break;
+      case "illustration":
+        return <Illustration />;
+        break;
+      case "Product Design":
+        return <ProductDesign />;
+        break;
+      case "Social Media":
+        return <Socials />;
+        break;
 
       default:
-        return <ThreeLogo />
+        return <ThreeLogo />;
     }
-  }
+  };
 
   return (
     <section className="works">
@@ -136,16 +138,39 @@ export const Works = () => {
         <div className="works__inner">
           <div className="works__info">
             <ul className="works__list">
-              <li className="works__list-item" onClick={() => setWork('Web Design')}>Web Design</li>
-              <li className="works__list-item" onClick={() => setWork('Development')}>Development</li>
-              <li className="works__list-item" onClick={() => setWork('illustration')}>illustration</li>
-              <li className="works__list-item" onClick={() => setWork('Product Design')}>Product Design</li>
-              <li className="works__list-item" onClick={() => setWork('Social Media')}>Social Media</li>
+              <li
+                className="works__list-item"
+                onClick={() => setWork("Web Design")}
+              >
+                Web Design
+              </li>
+              <li
+                className="works__list-item"
+                onClick={() => setWork("Development")}
+              >
+                Development
+              </li>
+              <li
+                className="works__list-item"
+                onClick={() => setWork("illustration")}
+              >
+                illustration
+              </li>
+              <li
+                className="works__list-item"
+                onClick={() => setWork("Product Design")}
+              >
+                Product Design
+              </li>
+              <li
+                className="works__list-item"
+                onClick={() => setWork("Social Media")}
+              >
+                Social Media
+              </li>
             </ul>
           </div>
-          <div className="works__model">
-            {sw(work)}
-          </div>
+          <div className="works__model">{sw(work)}</div>
         </div>
       </div>
     </section>
@@ -200,7 +225,7 @@ export const Contact = () => {
                 autoComplete="off"
                 value={inputValue.name}
                 onChange={(e) =>
-                  setInputValue({...inputValue, name: e.target.value})
+                  setInputValue({ ...inputValue, name: e.target.value })
                 }
               />
               <input
@@ -209,7 +234,9 @@ export const Contact = () => {
                 name="email"
                 autoComplete="off"
                 value={inputValue.email}
-                onChange={(e) => setInputValue({...inputValue, email: e.target.value})}
+                onChange={(e) =>
+                  setInputValue({ ...inputValue, email: e.target.value })
+                }
               />
               <textarea
                 className="contact__form-text"
@@ -218,7 +245,9 @@ export const Contact = () => {
                 rows={10}
                 autoComplete="off"
                 value={inputValue.text}
-                onChange={(e) => setInputValue({...inputValue, text: e.target.value})}
+                onChange={(e) =>
+                  setInputValue({ ...inputValue, text: e.target.value })
+                }
               />
               <button className="contact__form-btn" type="submit">
                 Send
